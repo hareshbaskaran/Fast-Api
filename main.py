@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from router import blog_get
+from router1 import get_blog
 
 
 app = FastAPI()
-app.include_router(blog_get.router)
+app.include_router(get_blog.router)
 
 @app.get('/hello')
 def index():
