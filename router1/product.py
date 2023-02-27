@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from fastapi.responses import Response
+from fastapi.responses import Response,PlainTextResponse
 
 router = APIRouter(
     prefix='/article',
@@ -19,3 +19,13 @@ def get_all_products():
         content=data,
         media_type="text/plain"
     )
+    
+@router.get('/{id}', responses={
+    200:{
+        
+    }
+})    
+def get_product(id:int):
+    if id > len(product):
+        out="Product unavailable"
+        return PlainTextResponse()
